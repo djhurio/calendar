@@ -99,4 +99,4 @@ sink(file = "results/distr_weeks.txt")
   print(tab_agg3)
 sink()
 
-fwrite(tab, file = "results/weeks_by_year.csv", sep = "\t")
+fwrite(tab, file = "results/weeks_by_year.csv")
