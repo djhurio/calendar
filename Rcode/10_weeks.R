@@ -90,13 +90,8 @@ tab_LFS[, .N, keyby = .(leap.year, weeks, pattern)][, P := prop.table(N)][]
 
 # Save ####
 
-sink(file = "results/distr_weeks.txt")
-  cat("\nDistribution of years by week pattern\n\n")
-  print(tab_agg1)
-  cat("\nDistribution of years by week pattern and leap year\n\n")
-  print(tab_agg2)
-  cat("\nDistribution of years by week pattern and leap year (table)\n\n")
-  print(tab_agg3)
-sink()
-
+fwrite(tab_agg1, file = "results/distr_by_weeks.csv")
+fwrite(tab_agg2, file = "results/distr_by_weeks_leap.csv")
+fwrite(tab_agg3, file = "results/distr_by_weeks_leap_table.csv")
 fwrite(tab, file = "results/weeks_by_year.csv")
+fwrite(tab_LFS, file = "results/weeks_by_year_LFS.csv")
